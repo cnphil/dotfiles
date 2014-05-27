@@ -4,7 +4,7 @@ dotfiles
 Backup of my dotfiles.
 
 ### TODO:
-* Bash script & auto installation.
+* Bash script for auto installation and backup.
 
 ### vim:
 `.vimrc` and `.vim/`
@@ -22,4 +22,8 @@ Backup of my dotfiles.
 ### slate:
 `.slate`
 * Should work out of box.
+
+### oh-my-zsh:
+`.oh-my-zsh/custom/`
+* Includes my gentoo-style theme.
 
