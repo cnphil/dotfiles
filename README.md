@@ -27,3 +27,6 @@ Backup of my dotfiles.
 `.oh-my-zsh/custom/`
 * Includes my gentoo-style theme.
 
+### ghc:
+`.ghc/ghci.conf`
+* Hoogle and Hlint required.
