@@ -1,0 +1,21 @@
+Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Wireless "wlp1s0" ["-t", "<essid> <quality>%"] 50
+                    , Run Memory ["-t","Mem: <usedratio>%"] 30 
+                    , Run Swap [] 10
+                    , Run Date "%a %B %_d %Y %I:%M:%S %p" "date" 10
+                    , Run BatteryP ["BAT0"]
+                          ["-t", "Batt: <acstatus><left>%",
+                           "-L", "10", "-H", "80", "--high", "green", "--low", "red", "-p", "3",
+                           "--", "-O", "<fc=green>On</fc> - ", "-i", ""]
+                          600
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %wlp1s0wi% | %date%"
+       }

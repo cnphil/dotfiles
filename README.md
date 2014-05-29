@@ -30,3 +30,7 @@ Backup of my dotfiles.
 ### ghc:
 `.ghc/ghci.conf`
 * Hoogle and Hlint required.
+
+### xmonad:
+`.xmobarrc` and `.xmonad/xmonad.hs`
+* Should work out of box.
