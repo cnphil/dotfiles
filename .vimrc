@@ -23,6 +23,10 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'rosenfeld/conque-term'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
@@ -68,6 +72,15 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<c-n>'],
+\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<c-p>'],
+\ 'PrtHistory(-1)':       [],
+\ 'PrtHistory(1)':        [],
+\ }
+
 " let g:neocomplete#max_list = 5
 inoremap <D-Space> <C-n>
 " imap jj <Esc>
