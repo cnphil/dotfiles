@@ -36,5 +36,6 @@ Backup of my dotfiles.
 * Should work out of box.
 
 ### xorg:
-`.xinitrc` and `.Xresources`
+`.xinitrc`, `.Xresources` and `.xbindkeysrc`
 * Includes configurations for urxvt.
+* xbindkey also required.

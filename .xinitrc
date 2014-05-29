@@ -11,5 +11,7 @@ xmodmap -e "pointer = 1 2 3 5 4"
 xmodmap -e "clear mod4"
 xmodmap -e "add control = Super_L"
 
+xbindkeys
+
 # start xmonad
 exec xmonad
