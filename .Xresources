@@ -129,6 +129,6 @@ URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=10
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
-
-!--- Solarized settings begin ---
-!--- Solarized theme end ---
+URxvt.perl-ext-common: font-size 
+URxvt.keysym.M-equal:  perl:font-size:increase
+URxvt.keysym.M-minus:  perl:font-size:decrease

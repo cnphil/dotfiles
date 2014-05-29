@@ -47,3 +47,8 @@ Backup of my dotfiles.
 `.fonts/`
 * Arch Linux-only.
 * Run `fc-cache -vf` to update fonts.
+
+### urxvt:
+`.urxvt/`
+* Basically works out of box.
+* Please note that urxvt's settings are in `.Xresources`.
