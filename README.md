@@ -34,3 +34,7 @@ Backup of my dotfiles.
 ### xmonad:
 `.xmobarrc` and `.xmonad/xmonad.hs`
 * Should work out of box.
+
+### xorg:
+`.xinitrc` and `.Xresources`
+* Includes configurations for urxvt.
