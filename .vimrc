@@ -9,6 +9,8 @@ set smartindent
 set showmatch
 set shiftround
 set nojoinspaces
+set ignorecase
+set smartcase
 
 set nocompatible   " Disable vi-compatibility
 set backspace=indent,eol,start
@@ -27,6 +29,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'rosenfeld/conque-term'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
@@ -80,6 +83,13 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtHistory(-1)':       [],
 \ 'PrtHistory(1)':        [],
 \ }
+
+" set leader to ,
+let mapleader=","
+let g:mapleader=","
+
+" set the background color of sign column
+highlight clear SignColumn
 
 " let g:neocomplete#max_list = 5
 inoremap <D-Space> <C-n>
