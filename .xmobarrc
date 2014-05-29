@@ -9,9 +9,9 @@ Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Swap [] 10
                     , Run Date "%a %B %_d %Y %I:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
-                          ["-t", "Batt: <acstatus><left>%",
-                           "-L", "10", "-H", "80", "--high", "green", "--low", "red", "-p", "3",
-                           "--", "-O", "<fc=green>On</fc> -", "-i", ""]
+                          ["-t", "Batt: <acstatus> <left>%",
+                           "-L", "10", "-H", "80", "--high", "green", "--low", "red",
+                           "--", "-O", "<fc=green>On</fc>", "-i", ""]
                           600
                     , Run StdinReader
                     ]
