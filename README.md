@@ -12,10 +12,11 @@ Backup of my dotfiles.
 * Vim version 7.4.253 with lua, python support required.
 * Various TERM tweaks for theme Solarized required.
 * Plugins should be managed by Vundle, you need to manually install vundle into `.vim/vundle`.
-* Other notable plugins that does NOT work out of box: ghc-mod (install from cabal), powerline (python standalone).
+* Other notable plugins that does NOT work out of box: ghc-mod (install from cabal), powerline (python standalone), ack.
 * Installation:
     * Copy `.vimrc` and `.vim/`.
     * Install powerline (standalone version).
+    * Install ack.
     * Clone `Vundle.vim` into `.vim/bundle/vundle`.
     * Optional: install ghc-mod from cabal if writing Haskell.
     * Run `make` on `.vim/bundle/vimproc/`.
