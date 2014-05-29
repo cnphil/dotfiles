@@ -15,8 +15,9 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
-import XMonad.Prompt (defaultXPConfig)
+import XMonad.Prompt 
 import XMonad.Prompt.Shell (shellPrompt)
+import XMonad.Prompt.XMonad (xmonadPrompt)
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -61,6 +62,19 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
+myXPConfig = defaultXPConfig                                    
+    { 
+	font  = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u" 
+	,fgColor = "#0096d1"
+	, bgColor = "#000000"
+	, bgHLight    = "#000000"
+	, fgHLight    = "#FF0000"
+	, position = Top
+        , historySize = 512
+        , showCompletionOnTab = True
+        , historyFilter = deleteConsecutive
+    }
+
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -69,11 +83,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
-
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    -- run shellPrompt
+    , ((modm,               xK_p     ), shellPrompt myXPConfig)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
