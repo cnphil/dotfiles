@@ -3,6 +3,7 @@ xsetroot -cursor_name left_ptr
 
 # read Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[[ -f ~/background.xpm ]] && imlibsetroot ~/background.xpm &
 
 # enable "natural" scrolling like OS X
 xmodmap -e "pointer = 1 2 3 5 4"
