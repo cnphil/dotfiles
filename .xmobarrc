@@ -7,7 +7,7 @@ Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Wireless "wlp1s0" ["-t", "<essid> <quality>%"] 50
                     , Run Memory ["-t","Mem: <usedratio>%"] 30 
                     , Run Swap [] 10
-                    , Run Date "%a %B %_d %Y %I:%M:%S %p" "date" 10
+                    , Run Date "%a %B %_d %Y %H:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
                           ["-t", "Batt: <acstatus> <left>%",
                            "-L", "10", "-H", "80", "--high", "green", "--low", "red",
