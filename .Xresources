@@ -66,10 +66,11 @@ URxvt*foreground:                     White
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-! URxvt*font:                           fontname
-! URxvt*boldFont:                       fontname
-! URxvt*italicFont:                     fontname
-! URxvt*boldItalicFont:                 fontname
+URxvt*font:                 xft:Monaco for Powerline:regular:size=10
+URxvt*imFont:               xft:Monaco for Powerline:regular:size=10
+URxvt*boldFont:             xft:Monaco for Powerline:bold:size=10
+URxvt*italicFont:           xft:Monaco for Powerline:italic:size=10
+URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=10
 ! URxvt*intensityStyles:                boolean
 ! URxvt*inputMethod:                    name
 ! URxvt*preeditType:                    style
@@ -128,3 +129,6 @@ URxvt*foreground:                     White
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+!--- Solarized settings begin ---
+!--- Solarized theme end ---
