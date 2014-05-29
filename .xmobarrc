@@ -11,7 +11,7 @@ Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run BatteryP ["BAT0"]
                           ["-t", "Batt: <acstatus><left>%",
                            "-L", "10", "-H", "80", "--high", "green", "--low", "red", "-p", "3",
-                           "--", "-O", "<fc=green>On</fc> - ", "-i", ""]
+                           "--", "-O", "<fc=green>On</fc> -", "-i", ""]
                           600
                     , Run StdinReader
                     ]
