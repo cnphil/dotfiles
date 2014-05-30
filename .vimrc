@@ -94,8 +94,6 @@ let g:mapleader=","
 highlight clear SignColumn
 
 " let g:neocomplete#max_list = 5
-inoremap <D-Space> <C-n>
-" imap jj <Esc>
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
