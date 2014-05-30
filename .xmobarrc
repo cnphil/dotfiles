@@ -12,7 +12,7 @@ Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
                           ["-t", "Batt: <acstatus> <left>%",
                            "-L", "10", "-H", "80", "--high", "green", "--low", "red",
                            "--", "-O", "<fc=green>On</fc>", "-i", ""]
-                          600
+                          50
                     , Run StdinReader
                     ]
        , sepChar = "%"

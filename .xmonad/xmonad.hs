@@ -18,6 +18,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Prompt 
 import XMonad.Prompt.Shell (shellPrompt)
 import XMonad.Prompt.XMonad (xmonadPrompt)
+import qualified XMonad.Actions.CycleWS as CWS
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -148,9 +149,27 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-    ]
-    ++
+    
+    -- mod-[, Jump to previous workspace
+    
+    , ((modm         , xK_bracketleft ), CWS.prevWS)
 
+    -- mod-], Jump to next workspace
+
+    , ((modm         , xK_bracketright), CWS.nextWS)
+    
+    -- mod-shift-[, Jump to previous workspace and push current window
+    
+    -- , ((modm .|. shiftMask, xK_bracketleft ), CWS.shiftToNext >> CWS.prevWS)
+
+    -- mod-shift-], Jump to next workspace and push current window
+
+    -- , ((modm .|. shiftMask, xK_bracketright), CWS.shiftToNext >> CWS.nextWS)
+    
+    ]
+
+
+    ++
     --
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
@@ -159,6 +178,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
+
 
     --
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
