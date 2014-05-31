@@ -60,7 +60,11 @@ else
     colorscheme solarized
     set guioptions-=L
     set guioptions-=r
-    set guifont=Monaco\ for\ Powerline:h12 " Patched font for Powerline
+    if has('gui_macvim')
+        set guifont=Monaco\ for\ Powerline:h12 " Patched font for Powerline
+    else
+        set guifont=Monaco\ for\ Powerline
+    endif
 endif
 
 execute pathogen#incubate()
