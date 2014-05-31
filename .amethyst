@@ -3,5 +3,12 @@
         "floating",
         "tall",
         "wide"
-    ]
+    ],
+    
+    "floating": [
+        "com.apple.systempreferences",
+        "com.apple.finder"
+    ],
+
+    "enables-layout-hud-on-space-change": false
 }
