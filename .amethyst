@@ -10,5 +10,22 @@
         "com.apple.finder"
     ],
 
-    "enables-layout-hud-on-space-change": false
+    "enables-layout-hud-on-space-change": false,
+
+    "focus-ccw": {
+        "mod": "mod1",
+        "key": "k"
+    },
+    "focus-cw": {
+        "mod": "mod1",
+        "key": "j"
+    },
+    "swap-ccw": {
+        "mod": "mod2",
+        "key": "k"
+    },
+    "swap-cw": {
+        "mod": "mod2",
+        "key": "j"
+    }
 }
