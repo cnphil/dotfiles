@@ -33,6 +33,11 @@ Backup of my dotfiles.
 `.slate`
 * Should work out of box.
 
+### amethyst:
+`.amethyst`
+* Should work out of box.
+* Collaborates with slate.
+
 ### oh-my-zsh:
 `.oh-my-zsh/custom/`
 * Includes my gentoo-style theme.
