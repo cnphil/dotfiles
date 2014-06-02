@@ -13,7 +13,7 @@ Xft.hintstyle:  hintfull
 ! URxvt*skipScroll:                     boolean
 ! URxvt*pastableTabs:                   boolean
 ! URxvt*scrollstyle:                    mode
-! URxvt*scrollBar:                      boolean
+URxvt*scrollBar:                        false
 ! URxvt*scrollBar_right:                boolean
 ! URxvt*scrollBar_floating:             boolean
 ! URxvt*scrollBar_align:                mode
