@@ -38,6 +38,8 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Shougo/vimproc'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
+Bundle 'lambdatoast/elm.vim'
+
 execute pathogen#infect()
 filetype plugin indent on
 call pathogen#helptags()
