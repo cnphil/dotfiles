@@ -20,5 +20,8 @@ xmodmap -e "add control = Super_L"
 
 xbindkeys
 
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
 # start xmonad
 exec xmonad

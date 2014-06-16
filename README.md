@@ -64,4 +64,5 @@ Backup of my dotfiles.
 ### urxvt:
 `.urxvt/`
 * Basically works out of box.
+* Required package: `urxvt-perls` and `autocutsel`.
 * Please note that urxvt's settings are in `.Xresources`.
