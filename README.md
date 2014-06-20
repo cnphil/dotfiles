@@ -52,9 +52,13 @@ Backup of my dotfiles.
 * Should work out of box.
 
 ### xorg:
-`.xinitrc`, `.Xresources` and `.xbindkeysrc`
+`.xinitrc`, `.Xresources`, `.Xmodmap` and `.xbindkeysrc`
 * Includes configurations for urxvt.
 * xbindkey also required.
+
+### gtk+:
+`.gtkrc-2.0`
+* GTK+ theme settings.
 
 ### fonts:
 `.fonts/`

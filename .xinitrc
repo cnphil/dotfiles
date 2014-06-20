@@ -1,22 +1,19 @@
+# fcitx settings
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+fcitx
+
 # set the cursor
 xsetroot -cursor_name left_ptr
 
 # read Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/background.xpm ]] && imlibsetroot ~/background.xpm &
+[[ -f ~/.background.xpm ]] && imlibsetroot ~/.background.xpm &
 
-# enable "natural" scrolling like OS X
-xmodmap -e "pointer = 1 2 3 5 4"
-
-# swap left Ctrl and left Alt (on Chromebook, mimicking HHKB)
-# xmodmap -e "clear control"
-# xmodmap -e "clear mod1"
-# xmodmap -e "add control = Alt_L Control_R"
-# xmodmap -e "add mod1 = Control_L Alt_R"
-
-# map windows key to control
-xmodmap -e "clear mod4"
-xmodmap -e "add control = Super_L"
+if [ -s ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
 
 xbindkeys
 
