@@ -24,6 +24,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.NamedWindows (getName)
+import XMonad.Layout.IndependentScreens (countScreens)
 import Codec.Binary.UTF8.String (encodeString)
 import Data.Function (on)
 import Control.Monad (zipWithM_)
@@ -288,7 +289,7 @@ myppWithXmobar xmobar = defaultPP {
                      ppOutput = hPutStrLn xmobar
                    -- , ppTitle = xmobarColor "white" "" . shorten 110
                    , ppTitle = (\_ -> "")
-                   , ppCurrent = xmobarColor "white" "black" . pad
+                   , ppCurrent = xmobarColor "green" "black" . pad
                    , ppHidden = pad
                    , ppHiddenNoWindows = \w -> xmobarColor "#444" "" (" " ++ w ++ " ")
                    , ppSep = xmobarColor "#555" "" " / "
@@ -310,50 +311,14 @@ myppWithXmobar xmobar = defaultPP {
 -- By default, do nothing.
 myStartupHook = return ()
 
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
-
--- Run xmonad with the settings you specify. No need to modify this.
---
-main = do
-	xmobar0 <- spawnXmobar 0
-	xmobar1 <- spawnXmobar 1
-	xmonad $ defaultConfig {
-      -- simple stuff
-        terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
-        borderWidth        = myBorderWidth,
-        modMask            = myModMask,
-        workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
-
-      -- key bindings
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
-
-      -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook [myppWithXmobar xmobar0, myppWithXmobar xmobar1],
-        startupHook        = myStartupHook
-    }
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-
 -- dual screen settings
 spawnXmobar screen = spawnPipe . intercalate " " $ options
     where options = [ "xmobar"
                     , "-x"
                     , show screen
                     ]
+
+spawnXmobars nScreens = sequence $ map spawnXmobar $ take nScreens [0..]  
 -- The functions dynamicLogWithPP', dynamicLogString', and pprWindowSet' below
 -- are similar to their undashed versions, with the difference being that the
 -- latter operate on the current screen, whereas the former take the screen to
@@ -401,3 +366,41 @@ pprWindowSet' screen sort' urgents pp s = sepBy (ppWsSep pp) . map fmt . sort' $
 
 sepBy :: String -> [String] -> String
 sepBy sep = intercalate sep . filter (not . null)
+------------------------------------------------------------------------
+-- Now run xmonad with all the defaults we set up.
+
+-- Run xmonad with the settings you specify. No need to modify this.
+--
+main = do
+    nScreens <- countScreens
+    xmobars <- spawnXmobars nScreens
+    xmonad $ defaultConfig {
+      -- simple stuff
+        terminal           = myTerminal,
+        focusFollowsMouse  = myFocusFollowsMouse,
+        clickJustFocuses   = myClickJustFocuses,
+        borderWidth        = myBorderWidth,
+        modMask            = myModMask,
+        workspaces         = myWorkspaces,
+        normalBorderColor  = myNormalBorderColor,
+        focusedBorderColor = myFocusedBorderColor,
+
+      -- key bindings
+        keys               = myKeys,
+        mouseBindings      = myMouseBindings,
+
+      -- hooks, layouts
+        layoutHook         = myLayout,
+        manageHook         = myManageHook,
+        handleEventHook    = myEventHook,
+        logHook            = myLogHook $ map myppWithXmobar xmobars, 
+        startupHook        = myStartupHook
+    }
+
+-- A structure containing your configuration settings, overriding
+-- fields in the default config. Any you don't override, will
+-- use the defaults defined in xmonad/XMonad/Config.hs
+--
+-- No need to modify this.
+--
+
