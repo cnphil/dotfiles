@@ -1,4 +1,4 @@
-Config { font = "-*-Fixed-R-Normal-*-13-*-*-*-*-*-*-*"
+Config { font = "xft:WenQuanYi\ Zen\ Hei\ Mono:size=9"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top

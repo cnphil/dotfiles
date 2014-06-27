@@ -287,8 +287,8 @@ myLogHook pps = do
 
 myppWithXmobar xmobar = defaultPP {
                      ppOutput = hPutStrLn xmobar
-                   -- , ppTitle = xmobarColor "white" "" . shorten 110
-                   , ppTitle = (\_ -> "")
+                   , ppTitle = xmobarColor "white" "" . shorten 110
+                   -- , ppTitle = (\_ -> "")
                    , ppCurrent = xmobarColor "green" "black" . pad
                    , ppHidden = pad
                    , ppHiddenNoWindows = \w -> xmobarColor "#444" "" (" " ++ w ++ " ")
