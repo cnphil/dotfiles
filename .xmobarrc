@@ -1,4 +1,4 @@
-Config { font = "xft:WenQuanYi\ Zen\ Hei\ Mono:size=9"
+Config { font = "xft:WenQuanYi\ Bitmap\ Song:size=9"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top

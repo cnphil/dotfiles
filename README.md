@@ -64,7 +64,7 @@ Backup of my dotfiles.
 `.fonts/`
 * Arch Linux-only.
 * Run `fc-cache -vf` to update fonts.
-* Other required binary: wqy-microhei, wqy-zenhei.
+* Other required binary: wqy-microhei, wqy-zenhei, wqy-bitmapfont.
 
 ### urxvt:
 `.urxvt/`
