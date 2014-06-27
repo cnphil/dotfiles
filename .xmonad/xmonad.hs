@@ -10,7 +10,7 @@
 import XMonad
 import Data.Monoid
 import System.Exit
-import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicLog hiding (xmobar)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
@@ -22,6 +22,13 @@ import qualified XMonad.Actions.CycleWS as CWS
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Hooks.UrgencyHook
+import XMonad.Util.NamedWindows (getName)
+import Codec.Binary.UTF8.String (encodeString)
+import Data.Function (on)
+import Control.Monad (zipWithM_)
+import Data.List (intercalate, sortBy)
+import Data.Maybe (isJust, catMaybes)
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -273,7 +280,11 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook xmobar = dynamicLogWithPP $ defaultPP {
+myLogHook pps = do
+        screens <- (sortBy (compare `on` W.screen) . W.screens) `fmap` gets windowset
+        zipWithM_ dynamicLogWithPP' screens pps
+
+myppWithXmobar xmobar = defaultPP {
                      ppOutput = hPutStrLn xmobar
                    -- , ppTitle = xmobarColor "white" "" . shorten 110
                    , ppTitle = (\_ -> "")
@@ -305,7 +316,8 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-	xmobar <- spawnPipe "xmobar"
+	xmobar0 <- spawnXmobar 0
+	xmobar1 <- spawnXmobar 1
 	xmonad $ defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
@@ -325,7 +337,7 @@ main = do
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook xmobar,
+        logHook            = myLogHook [myppWithXmobar xmobar0, myppWithXmobar xmobar1],
         startupHook        = myStartupHook
     }
 
@@ -336,3 +348,56 @@ main = do
 -- No need to modify this.
 --
 
+-- dual screen settings
+spawnXmobar screen = spawnPipe . intercalate " " $ options
+    where options = [ "xmobar"
+                    , "-x"
+                    , show screen
+                    ]
+-- The functions dynamicLogWithPP', dynamicLogString', and pprWindowSet' below
+-- are similar to their undashed versions, with the difference being that the
+-- latter operate on the current screen, whereas the former take the screen to
+-- operate on as the first argument.
+focusedWindow = maybe Nothing (return . W.focus) . W.stack . W.workspace
+
+dynamicLogWithPP' screen pp = dynamicLogString' screen pp >>= io . ppOutput pp
+
+dynamicLogString' screen pp = do
+
+  winset <- gets windowset
+  urgents <- readUrgents
+  sort' <- ppSort pp
+
+  -- layout description
+  let ld = description . W.layout . W.workspace $ screen
+
+  -- workspace list
+  let ws = pprWindowSet' screen sort' urgents pp winset
+
+  -- window title
+  wt <- maybe (return "") (fmap show . getName) $ focusedWindow screen
+
+  -- run extra loggers, ignoring any that generate errors.
+  extras <- mapM (`catchX` return Nothing) $ ppExtras pp
+
+  return $ encodeString . sepBy (ppSep pp) . ppOrder pp $
+             [ ws
+             , ppLayout pp ld
+             , ppTitle  pp wt
+             ]
+             ++ catMaybes extras
+
+pprWindowSet' screen sort' urgents pp s = sepBy (ppWsSep pp) . map fmt . sort' $ W.workspaces s
+    where this     = W.tag . W.workspace $ screen
+          visibles = map (W.tag . W.workspace) (W.current s : W.visible s)
+
+          fmt w = printer pp (W.tag w)
+              where printer | W.tag w == this                                               = ppCurrent
+                            | W.tag w `elem` visibles                                       = ppVisible
+                            | any (\x -> maybe False (== W.tag w) (W.findTag x s)) urgents  = \ppC -> ppUrgent ppC . ppHidden ppC
+                            | isJust (W.stack w)                                            = ppHidden
+                            | otherwise                                                     = ppHiddenNoWindows
+
+
+sepBy :: String -> [String] -> String
+sepBy sep = intercalate sep . filter (not . null)
