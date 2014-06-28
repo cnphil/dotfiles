@@ -9,7 +9,7 @@ xsetroot -cursor_name left_ptr
 
 # read Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/.background.xpm ]] && imlibsetroot ~/.background.xpm &
+[[ -f ~/.background.png ]] && feh --bg-scale ~/.background.png &
 
 if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
