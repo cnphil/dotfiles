@@ -45,6 +45,7 @@ filetype plugin indent on
 call pathogen#helptags()
 
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 syntax on
 "set t_Co=256
 "set term=xterm-256color
