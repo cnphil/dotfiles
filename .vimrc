@@ -63,6 +63,7 @@ else
     colorscheme solarized
     set guioptions-=L
     set guioptions-=r
+    set guioptions-=e
     if has('gui_macvim')
         set guifont=Monaco\ for\ Powerline:h12 " Patched font for Powerline
     else " then it's Arch Linux with urxvt
