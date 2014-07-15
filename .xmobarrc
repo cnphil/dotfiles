@@ -7,15 +7,16 @@ Config { font = "xft:WenQuanYi\ Bitmap\ Song:size=9"
                     , Run Wireless "wlp1s0" ["-t", "<essid> <quality>%"] 50
                     , Run Memory ["-t","Mem: <usedratio>%"] 30 
                     , Run Swap [] 10
-                    , Run Date "%a %B %_d %Y %H:%M:%S %p" "date" 10
+                    , Run Com "/home/phil/.mutt/mail_check" [] "mail" 50
+                    , Run Date "%a %B %-d %Y %H:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
                           ["-t", "Batt: <acstatus> <left>%",
                            "-L", "10", "-H", "80", "--high", "green", "--low", "red",
-                           "--", "-O", "<fc=green>On</fc>", "-i", ""]
+                           "--", "-O", "<fc=green>On</fc>", "-i", "<fc=green>Full</fc>"]
                           50
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %wlp1s0wi% | %date%"
+       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | Unread: %mail% | %wlp1s0wi% | %date%"
        }
