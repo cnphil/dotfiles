@@ -138,6 +138,9 @@ inoremap <C-B> <Left>
 inoremap <C-N> <Down>
 inoremap <C-P> <Up>
 
+" Alt-V for paste in insert mode
+map! <M-v> <C-r>*
+
 " gui_gtk2 font size
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
 let s:minfontsize = 6
