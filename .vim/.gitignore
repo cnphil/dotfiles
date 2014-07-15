@@ -1,2 +1,4 @@
-bundle/
+bundle/*
+
+!bundle/vundle
 

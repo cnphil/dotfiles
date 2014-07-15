@@ -14,13 +14,13 @@ Backup of my dotfiles.
 * Plugins should be managed by Vundle, you need to manually install vundle into `.vim/vundle`.
 * Other notable plugins that does NOT work out of box: ghc-mod (install from cabal), powerline (python standalone), ack.
 * Installation:
+    * Run `git submodule init; git submodule update` to get Vundle working.
     * Copy `.vimrc` and `.vim/`.
     * Install powerline (standalone version).
     * Install ack.
-    * Clone `Vundle.vim` into `.vim/bundle/vundle`.
     * Optional: install ghc-mod from cabal if writing Haskell.
-    * Run `make` on `.vim/bundle/vimproc/`.
     * Finally, open up vim and `:BundleInstall`.
+    * Run `make` on `.vim/bundle/vimproc/`.
 * TODO: install script.
 
 ### tmux:
