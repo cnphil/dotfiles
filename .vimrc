@@ -39,6 +39,7 @@ Bundle 'Shougo/vimproc'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'lambdatoast/elm.vim'
+Bundle 'trapd00r/neverland-vim-theme'
 
 execute pathogen#infect()
 filetype plugin indent on
@@ -171,10 +172,17 @@ endfunction
 command! SmallerFont call SmallerFont()
 map <M--> :SmallerFont<CR>
 
+:function OpenInGvim(filepath)
+    :bd
+    :exec ":silent !gvim " . a:filepath
+:endfunction
+command! OG call OpenInGvim(expand('%:p'))
+
 :command GT GhcModType
 :command GTC GhcModTypeClear
 :command SP ConqueTermSplit zsh
 :command VSP ConqueTermVSplit zsh
 :command NL NeoCompleteLock
+:command Black colorscheme neverland
 
 
