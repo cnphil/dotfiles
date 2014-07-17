@@ -27,7 +27,6 @@ Backup of my dotfiles.
 `.tmux.conf`
 * Should work out of box.
 * Changed bind key to Ctrl-A.
-* TODO: separate OS X-only scripts.
 
 ### slate:
 `.slate`
@@ -75,6 +74,6 @@ Backup of my dotfiles.
 ### Other workflows:
 These workflows require confidential data written in their configurations.
 * mutt:
-    * `.muttrc` and `.mutt` folder.
+    * `.muttrc` and `.mutt/` folder.
     * offlineimap: `.offlineimaprc`.
     * goobook: `.goobookrc`.

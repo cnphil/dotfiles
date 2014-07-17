@@ -18,7 +18,8 @@ fi
 xbindkeys
 
 autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+# autocutsel -selection PRIMARY -fork &
+# the previous line enables select-to-copy
 
 # start xmonad
 exec xmonad

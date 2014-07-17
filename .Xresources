@@ -135,7 +135,9 @@ URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=10
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
-URxvt.perl-ext-common: font-size,default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common: font-size,default,clipboard,url-select,keyboard-select,matcher
+URxvt.url-launcher: chromium
+URxvt.matcher.button: 1
 URxvt.url-select.launcher: chromium
 URxvt.url-select.underline: true
 URxvt.keysym.M-equal:  perl:font-size:increase
