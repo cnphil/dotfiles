@@ -23,6 +23,29 @@ runtime bundle/unbundle/unbundle.vim
 let g:airline_powerline_fonts=1
 let g:airline#extensions#hunks#non_zero_only=1
 let g:airline_detect_whitespace=0
+function! AirlineThemePatch(palette)
+    if g:airline_theme == 'solarized'
+        let a:palette.normal.airline_c = [ '#76878c', '#073642', 244, 235 ]
+        let a:palette.normal.airline_x = [ '#76878c', '#073642', 244, 235 ]
+        let a:palette.normal.airline_a = g:airline#themes#powerlineish#palette.normal.airline_a
+        let a:palette.insert = g:airline#themes#powerlineish#palette.insert
+        let a:palette.visual.airline_a = g:airline#themes#powerlineish#palette.visual.airline_a
+        let a:palette.replace.airline_a = g:airline#themes#powerlineish#palette.replace.airline_a
+        let a:palette.inactive.airline_a = g:airline#themes#powerlineish#palette.inactive.airline_a
+
+        let a:palette.normal.airline_z = a:palette.normal.airline_a
+        let a:palette.visual.airline_z = a:palette.visual.airline_a
+        let a:palette.replace.airline_z = a:palette.replace.airline_a
+
+
+        let a:palette.normal_modified = a:palette.normal
+        let a:palette.insert_modified = a:palette.insert
+        let a:palette.visual_modified = a:palette.visual
+        let a:palette.replace_modified = a:palette.replace
+
+    endif
+endfunction
+let g:airline_theme_patch_func = 'AirlineThemePatch'
 
 filetype plugin indent on
 
