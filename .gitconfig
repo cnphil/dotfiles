@@ -1,0 +1,7 @@
+[user]
+	email = phil@cnphil.com
+	name = Phil Xiaojun Hu
+[push]
+	default = simple
+[core]
+	excludesfile = /home/phil/.gitignore_global

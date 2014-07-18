@@ -1,0 +1,13 @@
+.DS_Store
+*.log
+*.sqlite3
+config/database.yml
+db/schema.rb
+tmp/**/*
+
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~

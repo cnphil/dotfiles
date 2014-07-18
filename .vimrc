@@ -1,7 +1,6 @@
 set shiftwidth=4 softtabstop=4 tabstop=4
 set expandtab
-set ruler " highlight the line that the cursor is at
-" set cursorline
+set ruler
 set number
 set title
 set autoindent
@@ -16,52 +15,23 @@ set nocompatible   " Disable vi-compatibility
 set backspace=indent,eol,start
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" alternatively, pass a path where Vundle should install plugins
-"let path = '~/some/path/here'
-"call vundle#rc(path)
+syntax on
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+" load bundles
+runtime bundle/unbundle/unbundle.vim
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'rosenfeld/conque-term'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'vim-scripts/indent-motion'
-Bundle 'mileszs/ack.vim'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-Bundle 'Shougo/vimproc'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'ujihisa/neco-ghc'
-Bundle 'lambdatoast/elm.vim'
-Bundle 'trapd00r/neverland-vim-theme'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#hunks#non_zero_only=1
 
-execute pathogen#infect()
 filetype plugin indent on
-call pathogen#helptags()
 
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
-syntax on
-"set t_Co=256
-"set term=xterm-256color
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans = 1
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
+
 if !has('gui_running')
-    set background=dark
-    let g:solarized_termcolors = 256
-    colorscheme solarized
-    set term=screen-256color
+    let g:solarized_termcolors=256
+    "set term=screen-256color
 else
-    set background=dark
-    colorscheme solarized
     set guioptions-=L
     set guioptions-=r
     set guioptions-=e
@@ -74,11 +44,8 @@ else
     endif
 endif
 
-execute pathogen#incubate()
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+set background=dark
+colorscheme solarized
 
 let g:acp_enableAtStartup = 0
 " Use neocomplete.

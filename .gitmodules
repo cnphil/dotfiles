@@ -1,0 +1,54 @@
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/colors-neverland"]
+	path = .vim/bundle/colors-neverland
+	url = https://github.com/trapd00r/neverland-vim-theme.git
+[submodule ".vim/bundle/colors-solarized"]
+	path = .vim/bundle/colors-solarized
+	url = https://github.com/phil5/vim-colors-solarized.git
+[submodule ".vim/bundle/conque-term"]
+	path = .vim/bundle/conque-term
+	url = https://github.com/rosenfeld/conque-term.git
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/easymotion"]
+	path = .vim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/elm"]
+	path = .vim/bundle/elm
+	url = https://github.com/lambdatoast/elm.vim.git
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/ghcmod-vim"]
+	path = .vim/bundle/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule ".vim/bundle/gitgutter"]
+	path = .vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/indent-motion"]
+	path = .vim/bundle/indent-motion
+	url = https://github.com/vim-scripts/indent-motion.git
+[submodule ".vim/bundle/neco-ghc"]
+	path = .vim/bundle/neco-ghc
+	url = https://github.com/ujihisa/neco-ghc.git
+[submodule ".vim/bundle/neocomplete"]
+	path = .vim/bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.git
+[submodule ".vim/bundle/neosnippet"]
+	path = .vim/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.git
+[submodule ".vim/bundle/neosnippet-snippets"]
+	path = .vim/bundle/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule ".vim/bundle/unbundle"]
+	path = .vim/bundle/unbundle
+	url = https://github.com/sunaku/vim-unbundle.git
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
