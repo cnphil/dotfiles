@@ -29,7 +29,7 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * Should work out of box.
 * Changed bind key to Ctrl-A, default shell set to zsh.
 * Installation:
-    * Run `make vim`.
+    * Run `make tmux`.
 
 ### slate:
 `.slate`
