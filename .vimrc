@@ -22,6 +22,7 @@ runtime bundle/unbundle/unbundle.vim
 
 let g:airline_powerline_fonts=1
 let g:airline#extensions#hunks#non_zero_only=1
+let g:airline_detect_whitespace=0
 
 filetype plugin indent on
 
