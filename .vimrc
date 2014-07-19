@@ -23,6 +23,12 @@ runtime bundle/unbundle/unbundle.vim
 let g:airline_powerline_fonts=1
 let g:airline#extensions#hunks#non_zero_only=1
 let g:airline_detect_whitespace=0
+let g:airline#extensions#default#section_truncate_width = {
+    \ 'b': 30,
+    \ 'x': 60,
+    \ 'y': 88,
+    \ 'z': 45,
+    \ }
 function! AirlineThemePatch(palette)
     if g:airline_theme == 'solarized'
         let a:palette.normal.airline_c = [ '#76878c', '#073642', 244, 235 ]
@@ -36,6 +42,9 @@ function! AirlineThemePatch(palette)
         let a:palette.normal.airline_z = a:palette.normal.airline_a
         let a:palette.visual.airline_z = a:palette.visual.airline_a
         let a:palette.replace.airline_z = a:palette.replace.airline_a
+        let a:palette.insert.airline_b[0] ='#ffffff'
+        let a:palette.insert.airline_b[2] =231
+        let a:palette.insert.airline_y = a:palette.insert.airline_b
 
 
         let a:palette.normal_modified = a:palette.normal
@@ -43,7 +52,31 @@ function! AirlineThemePatch(palette)
         let a:palette.visual_modified = a:palette.visual
         let a:palette.replace_modified = a:palette.replace
 
-        let g:airline_section_c = "%<%f%#__accent_red#%m %{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
+
+        function MyFilewrap(text1, text2, text3, minwidth)
+            if a:minwidth > 0 && winwidth(0) < a:minwidth
+                return ''
+            endif
+            let prefix = "\ua0"
+            let a:mySep = empty(a:text3) ? '' : prefix.g:airline_left_alt_sep.prefix
+            let a:mytext1 = a:text1
+            let a:mytext2 = a:text2
+            if winwidth(0) < 79
+                let a:mytext1 = ''
+            endif
+            if winwidth(0) < 74
+                let a:mytext2 = ''
+            endif
+            if empty(a:mytext1) && empty(a:mytext2)
+                let a:mySep = ''
+            endif
+            return a:mytext1 . a:mytext2 . a:mySep . a:text3
+        endfunction
+
+        let g:airline_section_a = "%#__accent_bold#%{airline#util#wrap(airline#parts#mode(),0)}%#__restore__#%{airline#util#append(airline#parts#paste(),0)}%{airline#util#append(airline#parts#iminsert(),0)}"
+        let g:airline_section_b = "%{MyFilewrap(airline#extensions#hunks#get_hunks(),airline#extensions#branch#get_head(),fnamemodify(simplify(expand('%')),':t'), 0)}"
+        let g:airline_section_c = "%<%#__accent_red#%m %{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
+
 
     endif
 endfunction
