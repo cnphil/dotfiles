@@ -61,8 +61,12 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * xbindkey also required.
 
 ### gtk+:
-`.gtkrc-2.0`
+`.gtkrc-2.0` and `.config/gtk-3.0/settings.ini`
 * GTK+ theme settings.
+* Required packages:
+    * faenza-icon-theme
+    * ttf-opensans
+    * mediterraneannight-theme
 
 ### fonts:
 `.fonts/`
