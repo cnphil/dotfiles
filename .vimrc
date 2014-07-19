@@ -57,8 +57,9 @@ function! AirlineThemePatch(palette)
             if a:minwidth > 0 && winwidth(0) < a:minwidth
                 return ''
             endif
-            let prefix = "\ua0"
-            let a:mySep = empty(a:text3) ? '' : prefix.g:airline_left_alt_sep.prefix
+            let myspace=g:airline_symbols.space
+            let prefix = myspace == "\ua0" ? myspace : myspace.myspace
+            let a:mySep = empty(a:text3) ? '' : prefix.g:airline_left_alt_sep.myspace
             let a:mytext1 = a:text1
             let a:mytext2 = a:text2
             if winwidth(0) < 79
@@ -81,6 +82,9 @@ function! AirlineThemePatch(palette)
     endif
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
+if has('gui_running')
+    let g:airline_symbols.space="\ua0"
+endif
 
 filetype plugin indent on
 
