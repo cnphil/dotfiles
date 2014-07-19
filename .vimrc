@@ -43,6 +43,8 @@ function! AirlineThemePatch(palette)
         let a:palette.visual_modified = a:palette.visual
         let a:palette.replace_modified = a:palette.replace
 
+        let g:airline_section_c = "%<%f%#__accent_red#%m %{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
+
     endif
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
