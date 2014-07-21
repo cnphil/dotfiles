@@ -5,8 +5,8 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
-URxvt.font:                 xft:Curried:style=Regular:pixelsize=16
-URxvt.boldFont:             xft:Curried:style=Bold:pixelsize=16
+URxvt.font:                 xft:Curried:style=Regular:pixelsize=16,xft:WenQuanYi Micro Hei Mono:style=Regular:pixelsize=16
+URxvt.boldFont:             xft:Curried:style=Bold:pixelsize=16,xft:WenQuanYi Micro Hei Mono:style=Bold:pixelsize=16
 URxvt.italicFont:           xft:Curried:style=Italic:pixelsize=16
 URxvt.boldItalicFont:       xft:Curried:style=Bold Italic:pixelsize=16
 !URxvt*imFont:               xft:Monaco for Powerline:regular:pixelsize=13
@@ -25,14 +25,14 @@ URxvt.keysym.M-c:      perl:clipboard:copy
 URxvt.keysym.M-v:      perl:clipboard:paste
 
 urxvt.keysym.S-F1: command: \
-    \033]710;xft:Monaco for Powerline:regular:pixelsize=13\007 \
-    \033]711;xft:Monaco for Powerline:bold:pixelsize=13\007 \
+    \033]710;xft:Monaco for Powerline:regular:pixelsize=13,xft:WenQuanYi Micro Hei Mono:style=Regular:pixelsize=16\007 \
+    \033]711;xft:Monaco for Powerline:bold:pixelsize=13,xft:WenQuanYi Micro Hei Mono:style=Bold:pixelsize=16\007 \
     \033]712;xft:Monaco for Powerline:italic:pixelsize=13\007 \
     \033]713;xft:Monaco for Powerline:bold:italic:pixelsize=13\007
 
 urxvt.keysym.S-F2: command: \
-    \033]710;xft:Curried:style=Regular:pixelsize=16\007 \
-    \033]711;xft:Curried:style=Bold:pixelsize=16\007 \
+    \033]710;xft:Curried:style=Regular:pixelsize=16,xft:WenQuanYi Micro Hei Mono:style=Regular:pixelsize=16\007 \
+    \033]711;xft:Curried:style=Bold:pixelsize=16,xft:WenQuanYi Micro Hei Mono:style=Bold:pixelsize=16\007 \
     \033]712;xft:Curried:style=Italic:pixelsize=16\007 \
     \033]713;xft:Curried:style=Bold Italic:pixelsize=16\007
 
