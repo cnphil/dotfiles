@@ -25,11 +25,14 @@ import qualified Data.Map        as M
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.NamedWindows (getName)
 import XMonad.Layout.IndependentScreens (countScreens)
+import XMonad.Hooks.Place (placeFocused, smart, withGaps)
+import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
 import Data.Function (on)
 import Control.Monad (zipWithM_)
 import Data.List (intercalate, sortBy)
 import Data.Maybe (isJust, catMaybes)
+import Data.Ratio ((%))
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -46,7 +49,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 3
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -138,7 +141,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ((modm,               xK_t     ), toggleFloat)
 
     -- Increment the number of windows in the master area
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
@@ -196,6 +199,35 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+    ++
+
+    -- move floating window with keyboard
+    [((m .|. c, k), withFocused $ f (d x))
+            | (d, k) <- zip [\a->(a, 0), \a->(0, a), \a->(0-a, 0), \a->(0, 0-a)] [xK_l, xK_j, xK_h, xK_k]
+            , (f, m) <- zip [keysMoveWindow, \d -> keysResizeWindow d (0, 0)] [modm, modm .|. shiftMask]
+            , (c, x) <- zip [controlMask] [20]
+    ]
+
+    ++
+
+    -- Move current window to the center
+    [((modm .|. controlMask, xK_m     ), placeFocusedToCenter)]
+
+toggleFloat = withFocused (\window -> do
+                                floats <- gets (W.floating . windowset)
+                                if window `M.member` floats
+                                then withFocused $ windows . W.sink
+                                else placeFocusedToCenter
+                          )
+
+resizeFocusedToMini = withFocused $ \w -> whenX (isClient w) $ withDisplay $ \d -> do
+                        io $ raiseWindow d w
+                        io $ resizeWindow d w 800 600
+                        float w
+
+placeFocusedToCenter = do
+        resizeFocusedToMini
+        placeFocused $ smart (0.5, 0.5)
 
 
 ------------------------------------------------------------------------
