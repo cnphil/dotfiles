@@ -165,33 +165,24 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-let $DOTVIM = $HOME . '/.vim'
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
-    \ }
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 inoremap <C-N> <Down>
 inoremap <C-P> <Up>
+
+" ycm configuration
+if !exists("g:ycm_global_ycm_extra_conf")
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm/third_party/ycmd/examples/.ycm_extra_conf.py'
+endif
+
+" let g:ycm_always_populate_location_list = 1
+" let g:ycm_key_list_select_completion = ['<C-N>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-P>', '<Up>']
+" let g:ycm_server_keep_logfiles = 1
+" let g:ycm_server_log_level = 'debug'
 
 " Alt-V for paste in insert mode
 map! <M-v> <C-r>*

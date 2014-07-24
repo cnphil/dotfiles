@@ -38,15 +38,6 @@
 [submodule ".vim/bundle/neco-ghc"]
 	path = .vim/bundle/neco-ghc
 	url = https://github.com/ujihisa/neco-ghc.git
-[submodule ".vim/bundle/neocomplete"]
-	path = .vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.git
-[submodule ".vim/bundle/neosnippet"]
-	path = .vim/bundle/neosnippet
-	url = https://github.com/Shougo/neosnippet.git
-[submodule ".vim/bundle/neosnippet-snippets"]
-	path = .vim/bundle/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
 [submodule ".vim/bundle/unbundle"]
 	path = .vim/bundle/unbundle
 	url = https://github.com/sunaku/vim-unbundle.git
@@ -54,3 +45,6 @@
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
+[submodule ".vim/bundle/ycm"]
+	path = .vim/bundle/ycm
+	url = https://github.com/Valloric/YouCompleteMe.git

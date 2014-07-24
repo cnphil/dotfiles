@@ -10,6 +10,7 @@ modules-update:
 
 vim-plugins:
 	cd .vim/bundle/vimproc; make
+	cd .vim/bundle/ycm; ./install.sh --clang-completer
 
 clean:
 	rm -f .vim/bundle/vimproc/autoload/vimproc_*.so

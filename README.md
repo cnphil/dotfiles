@@ -22,6 +22,7 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * Other notable plugins that does NOT work out of box: ghc-mod (install from cabal), powerline (python standalone), ack.
 * Installation:
     * Optional binaries: `ack` and `ghc-mod`.
+    * Required binaries: `clang` (for C/C++ completion), `libtinfo` (if using Arch Linux, from AUR).
     * Run `make vim`.
 
 ### tmux:
