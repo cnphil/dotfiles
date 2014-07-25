@@ -19,6 +19,10 @@ vim: modules vim-plugins
 	ln -s $(CURDIR)/.vimrc ~/.vimrc
 	ln -s $(CURDIR)/.vim ~/.vim
 
+gitconfig:
+	ln -s $(CURDIR)/.gitconfig ~/.gitconfig
+	ln -s $(CURDIR)/.gitignore_global ~/.gitignore_global
+
 tmux:
 	ln -s $(CURDIR)/.tmux.conf ~/.tmux.conf
 

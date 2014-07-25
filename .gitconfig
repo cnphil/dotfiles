@@ -4,4 +4,5 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /home/phil/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	editor = vim
