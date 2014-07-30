@@ -168,6 +168,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-], Jump to next workspace
 
     , ((modm         , xK_bracketright), CWS.nextWS)
+
+    -- mod-Esc, Jump to the previously displayed WS
+    
+    , ((modm              , xK_Escape),  CWS.toggleWS)
     
     -- mod-shift-[, Jump to previous workspace and push current window
     
@@ -293,6 +297,7 @@ myLayout' = tiled ||| Mirror tiled ||| Full
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+    , className =? "mpv"            --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
