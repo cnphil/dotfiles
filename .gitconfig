@@ -1,6 +1,7 @@
 [user]
 	email = phil@cnphil.com
 	name = Phil Xiaojun Hu
+	signingkey = 8C48E444
 [push]
 	default = simple
 [core]
