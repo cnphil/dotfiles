@@ -25,6 +25,7 @@ import qualified Data.Map        as M
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.NamedWindows (getName)
 import XMonad.Layout.IndependentScreens (countScreens)
+import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Hooks.Place (placeFocused, smart, withGaps)
 import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
@@ -265,7 +266,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- which denotes layout choice.
 --
 myLayout = avoidStruts myLayout'
-myLayout' = tiled ||| Mirror tiled ||| Full
+myLayout' = smartBorders tiled ||| smartBorders (Mirror tiled) ||| smartBorders Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
