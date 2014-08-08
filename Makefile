@@ -28,7 +28,5 @@ tmux:
 
 zsh:
 	curl -L http://install.ohmyz.sh | sh
-	rm -rf ~/.oh-my-zsh/custom
-	ln -fs $(CURDIR)/.oh-my-zsh/custom ~/.oh-my-zsh/custom
-	sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="phil-gentoo"/' ~/.zshrc
+	sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="phil-gentoo"/; s|.*ZSH_CUSTOM.*|ZSH_CUSTOM=$(CURDIR)/.oh-my-zsh/custom|' ~/.zshrc
 
