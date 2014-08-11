@@ -17,6 +17,8 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 syntax on
 
+set mouse=c
+
 " load bundles
 runtime bundle/unbundle/unbundle.vim
 
