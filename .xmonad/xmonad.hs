@@ -26,7 +26,8 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Util.NamedWindows (getName)
 import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Hooks.Place (placeFocused, smart, withGaps)
+import XMonad.Hooks.Place (placeHook, placeFocused, smart, withGaps)
+import XMonad.ManageHook ((<+>))
 import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
 import Data.Function (on)
@@ -302,6 +303,11 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
+-- Place hook:
+-- 
+-- Center floating windows.
+myPlaceHook = placeHook $ withGaps (16,0,16,0) (smart (0.5,0.5))
+
 ------------------------------------------------------------------------
 -- Event handling
 
@@ -429,7 +435,7 @@ main = do
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook,
+        manageHook         = myPlaceHook <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook $ map myppWithXmobar xmobars, 
         startupHook        = myStartupHook

@@ -227,8 +227,11 @@ function! OpenInGvim(filepath)
 endfunction
 command! OG call OpenInGvim(expand('%:p'))
 
+nmap <F5> :GC<CR>
+
 :command GT GhcModType
 :command GTC GhcModTypeClear
+:command GC GhcModCheckAndLintAsync
 :command SP ConqueTermSplit zsh
 :command VSP ConqueTermVSplit zsh
 :command NL NeoCompleteLock
