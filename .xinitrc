@@ -1,3 +1,6 @@
+# dpi settings
+xrandr --dpi 200
+
 # fcitx settings
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -20,6 +23,11 @@ xbindkeys
 autocutsel -fork &
 # autocutsel -selection PRIMARY -fork &
 # the previous line enables select-to-copy
+
+# xmobar volume pipe
+_volume_pipe=/tmp/.volume-pipe
+[[ -S $_volume_pipe ]] || mkfifo $_volume_pipe
+/home/phil/bin/volume.sh &
 
 # start xmonad
 exec xmonad

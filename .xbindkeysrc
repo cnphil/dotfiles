@@ -1,25 +1,36 @@
 "xbacklight -dec 10"
-    m:0x0 + c:72
-    F6
+    XF86MonBrightnessDown
 "xbacklight -inc 10"
-    m:0x0 + c:73
-    F7
-"amixer set Master toggle"
-    m:0x0 + c:74
-    F8
-"amixer set Master 10- unmute"
-    m:0x0 + c:75
-    F9
-"amixer set Master 10+ unmute"
-    m:0x0 + c:76
-    F10
+    XF86MonBrightnessUp
+"kbdlight down"
+    XF86KbdBrightnessDown
+"kbdlight up"
+    XF86KbdBrightnessUp
+"/home/phil/bin/volume.sh toggle"
+    XF86AudioMute
+"/home/phil/bin/volume.sh down"
+    XF86AudioLowerVolume
+"/home/phil/bin/volume.sh up"
+    XF86AudioRaiseVolume
+"urxvt -e 'ncmpcpp'"
+    XF86LaunchA
+"urxvt -e 'mutt'"
+    XF86LaunchB
+"ncmpcpp next"
+    XF86AudioNext
+"ncmpcpp prev"
+    XF86AudioPrev
+"ncmpcpp stop"
+    XF86AudioStop
+"ncmpcpp toggle"
+    XF86AudioPlay
 "xvkbd -xsendevent -text '\[Delete]'"
-Alt + BackSpace
+    Alt + BackSpace
 "xvkbd -xsendevent -text '\[End]'"
-Alt + Right
+    Alt + Right
 "xvkbd -xsendevent -text '\[Home]'"
-Alt + Left
+    Alt + Left
 "xvkbd -xsendevent -text '\[Page_Down]'"
-Alt + Down
+    Alt + Down
 "xvkbd -xsendevent -text '\[Page_Up]'"
-Alt + Up
+    Alt + Up

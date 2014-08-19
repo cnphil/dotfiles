@@ -3,8 +3,8 @@ Config { font = "xft:CurriedCN:size=9"
        , fgColor = "grey"
        , position = Top
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Wireless "wlp1s0" ["-t", "<essid> <quality>%"] 50
+                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Wireless "wlp3s0" ["-t", "<essid>"] 50
                     , Run Memory ["-t","Mem: <usedratio>%"] 30 
                     , Run Swap [] 10
                     , Run Com "/home/phil/.mutt/mail_check" [] "mail" 50
@@ -15,8 +15,10 @@ Config { font = "xft:CurriedCN:size=9"
                            "--", "-O", "<fc=green>On</fc>", "-i", "<fc=green>Full</fc>"]
                           50
                     , Run StdinReader
+                    , Run MPD ["-t", "<state>: <artist>"] 10
+                    , Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | Unread: %mail% | %wlp1s0wi% | %date%"
+       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %mpd% %vol_pipe% | Mail: %mail% | %wlp3s0wi% | %date%"
        }
