@@ -15,10 +15,10 @@ Config { font = "xft:CurriedCN:size=9"
                            "--", "-O", "<fc=green>On</fc>", "-i", "<fc=green>Full</fc>"]
                           50
                     , Run StdinReader
-                    , Run MPD ["-t", "<state>: <artist>"] 10
+                    , Run MPD ["-t", "<statei> <artist>", "--", "-P", "", "-Z", "", "-S", ""] 10
                     , Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %mpd% %vol_pipe% | Mail: %mail% | %wlp3s0wi% | %date%"
+       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %vol_pipe% %mpd% | Mail: %mail% | %wlp3s0wi% | %date%"
        }
