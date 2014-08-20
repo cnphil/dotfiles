@@ -2,12 +2,13 @@ Config { font = "xft:CurriedCN:size=9"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
-       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+       , commands = [ Run Cpu ["-t","<total>%","-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 300
                     , Run Wireless "wlp3s0" ["-t", "<essid>"] 50
-                    , Run Memory ["-t","Mem: <usedratio>%"] 30 
-                    , Run Swap [] 10
-                    , Run Com "/home/phil/.mutt/mail_check" [] "mail" 50
+                    , Run Memory ["-t","<usedratio>%"] 30
+                    , Run Swap [] 300
+                    , Run Com "/home/phil/bin/mail.sh" [] "mail" 50
+                    , Run Com "/home/phil/bin/vpn.sh" [] "vpn" 100
                     , Run Date "%a %B %-d %Y %H:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
                           ["-t", "Batt: <acstatus> <left>%",
@@ -15,10 +16,13 @@ Config { font = "xft:CurriedCN:size=9"
                            "--", "-O", "<fc=green>On</fc>", "-i", "<fc=green>Full</fc>"]
                           50
                     , Run StdinReader
-                    , Run MPD ["-t", "<statei> <artist>", "--", "-P", "", "-Z", "", "-S", ""] 10
-                    , Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
+                    , Run MPD ["-t", "<statei>", "--", "-P", "", "-Z", "", "-S", ""] 10
+                    , Run BufferedPipeReader "mpc-vol"
+                          [ (0, False, "/tmp/.volume-pipe")
+                          , (40, False, "/tmp/.mpc-pipe")
+                          ]
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %battery% | %memory% | %vol_pipe% %mpd% | Mail: %mail% | %wlp3s0wi% | %date%"
+       , template = "%StdinReader% }{ CM: %cpu% %memory% | %battery% | <action=`/home/phil/bin/mpc.sh ask` button=1>%mpd% %mpc-vol%</action> | Mail: %mail% | %wlp3s0wi%%vpn% | %date%"
        }

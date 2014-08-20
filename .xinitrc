@@ -27,7 +27,12 @@ autocutsel -fork &
 # xmobar volume pipe
 _volume_pipe=/tmp/.volume-pipe
 [[ -S $_volume_pipe ]] || mkfifo $_volume_pipe
+_mpc_pipe=/tmp/.mpc-pipe
+[[ -S $_mpc_pipe ]] || mkfifo $_mpc_pipe
 /home/phil/bin/volume.sh &
+if [ ! $(pgrep "mpc\.sh") ]; then
+    /home/phil/bin/mpc.sh loop > /dev/null &
+fi
 
 # start xmonad
 exec xmonad
