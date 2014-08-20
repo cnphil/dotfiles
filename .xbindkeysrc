@@ -22,7 +22,7 @@
     XF86AudioPrev
 "ncmpcpp stop"
     XF86AudioStop
-"ncmpcpp toggle && /home/phil/bin/mpc.sh ask"
+"ncmpcpp toggle"
     XF86AudioPlay
 "xvkbd -xsendevent -text '\[Delete]'"
     Alt + BackSpace
