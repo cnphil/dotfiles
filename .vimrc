@@ -125,12 +125,11 @@ else
     if has('gui_macvim')
         set guifont=Monaco\ for\ Powerline:h12 " Patched font for Powerline
     else " then it's Arch Linux with urxvt
-        set guifont=Monaco\ for\ Powerline\ 9
+        set guifont=Monaco\ for\ Powerline\ 10
         set guioptions-=T
         set guioptions-=m
-        nmap <S-F1> :set guifont=Monaco\ for\ Powerline\ 9<CR>
+        nmap <S-F1> :set guifont=Monaco\ for\ Powerline\ 10<CR>
         nmap <S-F2> :set guifont=Curried\ 12<CR>
-        nmap <S-F3> :set guifont=Source\ Code\ Pro\ for\ Powerline\ 9<CR>
     endif
 endif
 

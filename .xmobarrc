@@ -3,8 +3,8 @@ Config { font = "xft:CurriedCN:size=9"
        , fgColor = "grey"
        , position = Top
        , commands = [ Run Cpu ["-t","<total>%","-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 300
-                    , Run Wireless "wlp3s0" ["-t", "<essid>"] 50
+                    , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 300
+                    , Run Wireless "wlp1s0" ["-t", "<essid>"] 50
                     , Run Memory ["-t","<usedratio>%"] 30
                     , Run Swap [] 300
                     , Run Com "/home/phil/bin/mail.sh" [] "mail" 50

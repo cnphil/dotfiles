@@ -5,18 +5,14 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
-URxvt.font:                 xft:Monaco for Powerline:regular:size=9,xft:WenQuanYi Micro Hei Mono:style=Regular:size=10
-URxvt.boldFont:             xft:Monaco for Powerline:bold:size=9,xft:WenQuanYi Micro Hei Mono:style=Bold:size=10
-URxvt.italicFont:           xft:Monaco for Powerline:italic:size=9
-URxvt.boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=9
-!URxvt.font:                 xft:Curried:style=Regular:size=12,xft:WenQuanYi Micro Hei Mono:style=Regular:size=12
-!URxvt.boldFont:             xft:Curried:style=Bold:size=12,xft:WenQuanYi Micro Hei Mono:style=Bold:size=12
-!URxvt.italicFont:           xft:Curried:style=Italic:size=12
-!URxvt.boldItalicFont:       xft:Curried:style=Bold Italic:size=12
-!URxvt*imFont:               xft:Monaco for Powerline:regular:size=12
+URxvt.font:                 xft:Curried:style=Regular:size=12,xft:WenQuanYi Micro Hei Mono:style=Regular:size=12
+URxvt.boldFont:             xft:Curried:style=Bold:size=12,xft:WenQuanYi Micro Hei Mono:style=Bold:size=12
+URxvt.italicFont:           xft:Curried:style=Italic:size=12
+URxvt.boldItalicFont:       xft:Curried:style=Bold Italic:size=12
+!URxvt*imFont:               xft:Monaco for Powerline:regular:size=10
 URxvt.scrollBar:            false
 URxvt.background:           Black
-URxvt.foreground:           #C8C8C8
+URxvt.foreground:           White
 URxvt.perl-ext-common: font-size,default,clipboard,url-select,keyboard-select,matcher
 URxvt.url-launcher: chromium
 URxvt.matcher.button: 1
@@ -29,10 +25,10 @@ URxvt.keysym.M-c:      perl:clipboard:copy
 URxvt.keysym.M-v:      perl:clipboard:paste
 
 urxvt.keysym.S-F1: command: \
-    \033]710;xft:Monaco for Powerline:regular:size=9,xft:WenQuanYi Micro Hei Mono:style=Regular:size=10\007 \
-    \033]711;xft:Monaco for Powerline:bold:size=9,xft:WenQuanYi Micro Hei Mono:style=Bold:size=10\007 \
-    \033]712;xft:Monaco for Powerline:italic:size=9\007 \
-    \033]713;xft:Monaco for Powerline:bold:italic:size=9\007
+    \033]710;xft:Monaco for Powerline:regular:size=10,xft:WenQuanYi Micro Hei Mono:style=Regular:size=12\007 \
+    \033]711;xft:Monaco for Powerline:bold:size=10,xft:WenQuanYi Micro Hei Mono:style=Bold:size=12\007 \
+    \033]712;xft:Monaco for Powerline:italic:size=10\007 \
+    \033]713;xft:Monaco for Powerline:bold:italic:size=10\007
 
 urxvt.keysym.S-F2: command: \
     \033]710;xft:Curried:style=Regular:size=12,xft:WenQuanYi Micro Hei Mono:style=Regular:size=12\007 \
@@ -40,20 +36,4 @@ urxvt.keysym.S-F2: command: \
     \033]712;xft:Curried:style=Italic:size=12\007 \
     \033]713;xft:Curried:style=Bold Italic:size=12\007
 
-urxvt.keysym.S-F3: command: \
-    \033]710;xft:Source Code Pro for Powerline:regular:size=9,xft:WenQuanYi Micro Hei Mono:style=Regular:size=10\007 \
-    \033]711;xft:Source Code Pro for Powerline:bold:size=9,xft:WenQuanYi Micro Hei Mono:style=Bold:size=10\007 \
-    \033]712;xft:Source Code Pro for Powerline:italic:size=9\007 \
-    \033]713;xft:Source Code Pro for Powerline:bold:italic:size=9\007
-
 XLock.mode: goop
-
-! terminal colors ------------------------------------------------------------
-
-! DarkBlue + Blue
-*color4:  #204a87
-*color12: #3465a4
-
-!DarkCyan + Cyan (both not tango)
-*color6:  #89b6e2
-*color14: #46a4ff

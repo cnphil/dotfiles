@@ -55,9 +55,6 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 ### xmonad:
 `.xmobarrc` and `.xmonad/xmonad.hs`
 * Should work out of box.
-* Both xmobar and xmonad should be installed via cabal-install.
-    * Package `wireless_tools` required.
-    * Run `cabal install c2hs && cabal install xmobar --flags="all_extensions"` for xft, alsa, mpd, and wireless support.
 
 ### xorg:
 `.xinitrc`, `.Xresources`, `.Xmodmap` and `.xbindkeysrc`

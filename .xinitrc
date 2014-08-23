@@ -1,6 +1,3 @@
-# dpi settings
-xrandr --dpi 200
-
 # fcitx settings
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
