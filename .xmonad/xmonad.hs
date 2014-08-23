@@ -31,7 +31,9 @@ import XMonad.ManageHook ((<+>))
 import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
 import Data.Function (on)
+import Data.Maybe (fromMaybe)
 import Control.Monad (zipWithM_)
+import Control.Applicative ((<$>))
 import Data.List (intercalate, sortBy)
 import Data.Maybe (isJust, catMaybes)
 import Data.Ratio ((%))
@@ -227,8 +229,15 @@ toggleFloat = withFocused (\window -> do
                           )
 
 resizeFocusedToMini = withFocused $ \w -> whenX (isClient w) $ withDisplay $ \d -> do
+                        ws <- gets windowset
+                        wa <- io $ getWindowAttributes d w
+                        sc <- fromMaybe (W.current ws) <$> pointScreen (fromIntegral $ wa_x wa) (fromIntegral $ wa_y wa)
+                        let sr = screenRect . W.screenDetail $ sc
+                        let sr_w = fromIntegral $ rect_width sr
+                        let sr_h = fromIntegral $ rect_height sr
+                        let resize = fromIntegral . floor . (*(3/5))
                         io $ raiseWindow d w
-                        io $ resizeWindow d w 800 600
+                        io $ resizeWindow d w (resize sr_w) (resize sr_h)
                         float w
 
 placeFocusedToCenter = do
