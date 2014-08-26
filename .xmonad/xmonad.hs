@@ -213,7 +213,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. c, k), withFocused $ f (d x))
             | (d, k) <- zip [\a->(a, 0), \a->(0, a), \a->(0-a, 0), \a->(0, 0-a)] [xK_l, xK_j, xK_h, xK_k]
             , (f, m) <- zip [keysMoveWindow, \d -> keysResizeWindow d (0, 0)] [modm, modm .|. shiftMask]
-            , (c, x) <- zip [controlMask] [20]
+            , (c, x) <- zip [controlMask] [40]
     ]
 
     ++
