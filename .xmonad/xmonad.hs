@@ -99,11 +99,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    -- launch dmenu
+    , ((modm,               xK_p     ), spawn "dmenu_run -fn 'Open Sans-9'")
 
     -- run shellPrompt
-    , ((modm,               xK_p     ), shellPrompt myXPConfig)
+    , ((modm .|. shiftMask, xK_p     ), shellPrompt myXPConfig)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -235,7 +235,7 @@ resizeFocusedToMini = withFocused $ \w -> whenX (isClient w) $ withDisplay $ \d 
                         let sr = screenRect . W.screenDetail $ sc
                         let sr_w = fromIntegral $ rect_width sr
                         let sr_h = fromIntegral $ rect_height sr
-                        let resize = fromIntegral . floor . (*(3/5))
+                        let resize = fromIntegral . floor . (*0.505)
                         io $ raiseWindow d w
                         io $ resizeWindow d w (resize sr_w) (resize sr_h)
                         float w
