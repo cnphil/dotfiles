@@ -16,13 +16,13 @@
     XF86LaunchA
 "urxvt -e 'mutt'"
     XF86LaunchB
-"ncmpcpp next"
+"mpc next"
     XF86AudioNext
-"ncmpcpp prev"
+"mpc prev"
     XF86AudioPrev
-"ncmpcpp stop"
+"mpc stop"
     XF86AudioStop
-"ncmpcpp toggle"
+"mpc toggle"
     XF86AudioPlay
 "xvkbd -xsendevent -text '\[Delete]'"
     Alt + BackSpace
