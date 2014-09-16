@@ -48,3 +48,6 @@
 [submodule ".vim/bundle/ycm"]
 	path = .vim/bundle/ycm
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git

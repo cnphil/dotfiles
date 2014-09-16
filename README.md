@@ -11,8 +11,13 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * `make build` builds required binaries like `vimproc`.
 
 ### TODO:
-* Separate .vimrc into config files.
+* Split .vimrc into config files.
+* Dedicated language settings for vim.
 * Migrate all dotfiles to symlink-style.
+* Try out:
+    * Irssi.
+    * Gitv and fugitive.
+    * Some indent-guide plugins for vim.
 
 ### vim:
 `.vimrc` and `.vim/`

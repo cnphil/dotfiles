@@ -18,7 +18,6 @@ URxvt.scrollBar:            false
 URxvt.background:           Black
 URxvt.foreground:           #C8C8C8
 URxvt.perl-ext-common: font-size,default,clipboard,url-select,keyboard-select,matcher
-URxvt.url-launcher: chromium
 URxvt.matcher.button: 1
 URxvt.url-select.launcher: chromium
 URxvt.url-select.underline: true
