@@ -11,7 +11,6 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * `make build` builds required binaries like `vimproc`.
 
 ### TODO:
-* Split .vimrc into config files.
 * Dedicated language settings for vim.
 * Migrate all dotfiles to symlink-style.
 * Try out:
