@@ -4,25 +4,25 @@ get_volume() {
   # return volume levels (0-100)
   vol=$(amixer sget Master | grep -o -m 1 '[[:digit:]]*%' | tr -d '%')
   if amixer sget Master | grep "\[off\]"; then
-      vol=""
+      vol="🔇"
   elif [ ${vol} -lt 5 ]; then
-      vol=""
+      vol="🔈"
   elif [ ${vol} -lt 15 ]; then
-      vol=""
+      vol="🔈"
   elif [ ${vol} -lt 30 ]; then
-      vol=""
+      vol="🔈"
   elif [ ${vol} -lt 45 ]; then
-      vol=""
+      vol="🔉"
   elif [ ${vol} -lt 60 ]; then
-      vol=""
+      vol="🔉"
   elif [ ${vol} -lt 75 ]; then
-      vol=""
+      vol="🔉"
   elif [ ${vol} -lt 80 ]; then
-      vol=""
+      vol="🔊"
   elif [ ${vol} -lt 95 ]; then
-      vol=""
+      vol="🔊"
   else
-      vol=""
+      vol="🔊"
   fi
   echo ${vol} | tee /tmp/.volume-pipe
 }

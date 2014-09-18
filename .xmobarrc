@@ -1,4 +1,4 @@
-Config { font = "xft:CurriedCN:size=9"
+Config { font = "xft:Terminus:size=9,WenQuanYi Zen Hei:size=9,Symbola:size=9"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
@@ -11,12 +11,12 @@ Config { font = "xft:CurriedCN:size=9"
                     , Run Com "/home/phil/bin/vpn.sh" [] "vpn" 100
                     , Run Date "%a %B %-d %Y %H:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
-                          ["-t", "Batt: <acstatus> <left>%",
+                          ["-t", "Batt:<acstatus> <left>%",
                            "-L", "10", "-H", "80", "--high", "green", "--low", "red",
-                           "--", "-O", "<fc=green>On</fc>", "-i", "<fc=green>Full</fc>"]
+                           "--", "-O", " <fc=green>On</fc>", "-i", " <fc=green>On</fc>", "-o", ""]
                           50
                     , Run StdinReader
-                    , Run MPD ["-t", "<statei>", "--", "-P", "", "-Z", "", "-S", ""] 10
+                    , Run MPD ["-t", "<statei>", "--", "-P", "▶", "-Z", "⏸", "-S", "⏹"] 10
                     , Run BufferedPipeReader "mpc-vol"
                           [ (0, False, "/tmp/.volume-pipe")
                           , (40, False, "/tmp/.mpc-pipe")
