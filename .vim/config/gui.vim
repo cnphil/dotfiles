@@ -15,6 +15,7 @@ else
         nmap <S-F1> :set guifont=Monaco\ for\ Powerline\ 9<CR>
         nmap <S-F2> :set guifont=Curried\ 12<CR>
         nmap <S-F3> :set guifont=Source\ Code\ Pro\ for\ Powerline\ 9<CR>
+        nmap <S-F4> :set guifont=Terminess\ Powerline\ 12<CR>
     endif
 endif
 

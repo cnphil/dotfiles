@@ -45,6 +45,12 @@ urxvt.keysym.S-F3: command: \
     \033]712;xft:Source Code Pro for Powerline:italic:size=9\007 \
     \033]713;xft:Source Code Pro for Powerline:bold:italic:size=9\007
 
+urxvt.keysym.S-F4: command: \
+    \033]710;xft:Terminess Powerline:style=Regular:size=12,xft:WenQuanYi Micro Hei Mono:style=Regular:size=12\007 \
+    \033]711;xft:Terminess Powerline:style=Bold:size=12,xft:WenQuanYi Micro Hei Mono:style=Bold:size=12\007 \
+    \033]712;xft:Terminess Powerline:style=Italic:size=12\007 \
+    \033]713;xft:Terminess Powerline:style=Bold Italic:size=12\007
+
 XLock.mode: goop
 
 ! terminal colors ------------------------------------------------------------
