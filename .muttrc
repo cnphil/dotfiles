@@ -1,0 +1,74 @@
+set my_name = "Phil Xiaojun Hu"
+
+set imap_user=phil@cnphil.com
+source "~/.muttrc-confidential"
+#set folder=imaps://phil@cnphil.com@imap.gmail.com/
+set smtp_url=smtp://phil@cnphil.com@smtp.gmail.com:587/
+set from = "phil@cnphil.com"
+set realname = "Phil Xiaojun Hu"
+
+#set spoolfile=+INBOX
+#mailboxes =+INBOX
+#set record = +Sent
+#unset record
+
+#set postponed = +[Gmail]/Drafts
+#unset imap_passive
+
+#set mail_check = 120
+set editor = "vim"
+
+set charset="utf8"
+set assumed_charset="big5:gb2312:utf-8"
+
+#set message_cachedir = "~/Mail/cache"
+
+# IMAP: offlineimap
+set folder = "~/Mail/gmail"
+source ~/.mutt/mailboxes
+set spoolfile = "+inbox"
+set record = "+local_sent"
+set postponed = imaps://phil@cnphil.com@imap.gmail.com/[Gmail]/Drafts
+set sort = threads
+set sort_aux = date
+
+# sidebar
+set sidebar_visible = no
+set sidebar_width = 14
+set sidebar_format = "%B%* (%N)"
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+# Ctrl-n, Ctrl-p to select next, previous folder.
+# Ctrl-o to open selected folder.
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+# goobook: Google Contacts
+set query_command="goobook query "'%s'"
+bind editor <Tab> complete-query
+macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+
+color normal      white          black
+color hdrdefault  green          default
+color quoted      green          default
+color quoted1     yellow         default
+color quoted2     red            default
+color signature   cyan           default
+color indicator   brightyellow   red
+color error       brightred      default
+color status      brightwhite    blue
+color tree        brightmagenta  black
+color tilde       blue           default
+color attachment  brightyellow   default
+color markers     brightred      default
+color message     white          black
+color search      brightwhite    magenta
+color bold        brightyellow   default
+
+source ~/.mutt/gpg.rc
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = 8C48E444
+set pgp_timeout = 3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes

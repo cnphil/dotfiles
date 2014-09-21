@@ -89,9 +89,12 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * Required package: `urxvt-perls` and `autocutsel`.
 * Please note that urxvt's settings are in `.Xresources`.
 
+### mutt:
+`.muttrc` and `.mutt/`
+* Collaborates with `offlineimap`.
+
 ### Other workflows:
 These workflows require confidential data written in their configurations.
-* mutt:
-    * `.muttrc` and `.mutt/` folder.
-    * offlineimap: `.offlineimaprc`.
-    * goobook: `.goobookrc`.
+* offlineimap: `.offlineimaprc`.
+* goobook: `.goobookrc`.
+* irssi: `.irssi/`.

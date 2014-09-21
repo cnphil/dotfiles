@@ -23,6 +23,10 @@ gitconfig:
 	ln -s $(CURDIR)/.gitconfig ~/.gitconfig
 	ln -s $(CURDIR)/.gitignore_global ~/.gitignore_global
 
+mutt:
+	ln -s $(CURDIR)/.muttrc ~/.muttrc
+	ln -s $(CURDIR)/.mutt ~/.mutt
+
 tmux:
 	ln -s $(CURDIR)/.tmux.conf ~/.tmux.conf
 
