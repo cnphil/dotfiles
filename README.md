@@ -14,7 +14,8 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 * Dedicated language settings for vim.
 * Migrate all dotfiles to symlink-style.
 * Try out:
-    * Irssi.
+    * Irssi and irssi-xmpp.
+    * ncmpcpp configurations.
     * Gitv and fugitive.
     * Some indent-guide plugins for vim.
 

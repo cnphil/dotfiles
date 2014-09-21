@@ -1,4 +1,4 @@
-Config { font = "xft:Terminus:size=9,WenQuanYi Zen Hei:size=9,Symbola:size=9"
+Config { font = "xft:Terminus:size=9,Symbola:size=9,Source Han Sans CN Light:size=9"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
