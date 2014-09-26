@@ -1,10 +1,10 @@
-"xbacklight -dec 10"
+"brightness.sh down"
     XF86MonBrightnessDown
-"xbacklight -inc 10"
+"brightness.sh up"
     XF86MonBrightnessUp
-"kbdlight down"
+"keybdlight.sh down"
     XF86KbdBrightnessDown
-"kbdlight up"
+"keybdlight.sh up"
     XF86KbdBrightnessUp
 "/home/phil/bin/volume.sh toggle"
     XF86AudioMute

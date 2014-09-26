@@ -10,3 +10,4 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 autocmd BufNewFile,BufRead *.hsc set filetype=haskell
+autocmd BufNewFile,BufRead *.page set filetype=markdown

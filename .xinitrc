@@ -24,6 +24,9 @@ autocutsel -fork &
 # autocutsel -selection PRIMARY -fork &
 # the previous line enables select-to-copy
 
+compton --config ~/.compton.conf &
+# for blur and opacity
+
 # xmobar volume pipe
 _volume_pipe=/tmp/.volume-pipe
 [[ -S $_volume_pipe ]] || mkfifo $_volume_pipe

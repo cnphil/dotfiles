@@ -93,6 +93,13 @@ Backup of my dotfiles. Uses `ln -s` to put them in place.
 `.muttrc` and `.mutt/`
 * Collaborates with `offlineimap`.
 
+### compton:
+`.compton.conf`
+* The compositing manager that does not suck.
+* Requires:
+    * notify-osd-customizable
+    * irssi-libnotify-git
+
 ### Other workflows:
 These workflows require confidential data written in their configurations.
 * offlineimap: `.offlineimaprc`.
