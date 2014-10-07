@@ -32,6 +32,8 @@ set postponed = imaps://phil@cnphil.com@imap.gmail.com/[Gmail]/Drafts
 set sort = threads
 set sort_aux = date
 
+set pager_index_lines = 6
+
 # sidebar
 set sidebar_visible = no
 set sidebar_width = 14
