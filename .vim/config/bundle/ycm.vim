@@ -12,3 +12,6 @@ let g:ycm_always_populate_location_list = 1
 " let g:ycm_server_log_level = 'debug'
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
+" get rid of scratch window after choosing a candidate
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
