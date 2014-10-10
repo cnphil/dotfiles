@@ -9,10 +9,6 @@ inoremap <C-B> <Left>
 inoremap <C-N> <Down>
 inoremap <C-P> <Up>
 
-" Alt-V for paste in insert mode
-map! <M-v> <C-r>*
-
-
 " indent jumps
 " <[l>, <]l>: exclusive jump to prev/next line with lower indent
 "
