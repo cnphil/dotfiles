@@ -1,6 +1,4 @@
 pointer = 1 2 3 4 5
-clear mod4
 keycode 66 = Control_L
 clear Lock
 add control = Control_L
-add mod1 = Super_L Super_R

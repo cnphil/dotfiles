@@ -60,7 +60,7 @@ myBorderWidth   = 3
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod1Mask
+myModMask       = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -147,6 +147,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Push window back into tiling
     , ((modm,               xK_t     ), toggleFloat)
 
+    -- Push window to left (floating)
+    , ((modm,               xK_i     ), pushFloat (Left ()))
+
+    -- Push window to right (floating)
+    , ((modm,               xK_o     ), pushFloat (Right ()))
+
     -- Increment the number of windows in the master area
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
 
@@ -228,20 +234,29 @@ toggleFloat = withFocused (\window -> do
                                 else placeFocusedToCenter
                           )
 
-resizeFocusedToMini = withFocused $ \w -> whenX (isClient w) $ withDisplay $ \d -> do
+pushFloat side = withFocused (\window -> do
+                                resizeFocusedTo 0.4 0.8
+                                placeFocused $ smart (sidefactor, 0.5)
+                             )
+                 where sidefactor = case side of
+                                    Left _ -> 0.075
+                                    otherwise -> 0.925
+
+resizeFocusedTo wfactor hfactor = withFocused $ \w -> whenX (isClient w) $ withDisplay $ \d -> do
                         ws <- gets windowset
                         wa <- io $ getWindowAttributes d w
                         sc <- fromMaybe (W.current ws) <$> pointScreen (fromIntegral $ wa_x wa) (fromIntegral $ wa_y wa)
                         let sr = screenRect . W.screenDetail $ sc
                         let sr_w = fromIntegral $ rect_width sr
                         let sr_h = fromIntegral $ rect_height sr
-                        let resize = fromIntegral . floor . (*0.505)
+                        let resizew = fromIntegral . floor . (*wfactor)
+                        let resizeh = fromIntegral . floor . (*hfactor)
                         io $ raiseWindow d w
-                        io $ resizeWindow d w (resize sr_w) (resize sr_h)
+                        io $ resizeWindow d w (resizew sr_w) (resizeh sr_h)
                         float w
 
 placeFocusedToCenter = do
-        resizeFocusedToMini
+        resizeFocusedTo 0.505 0.505
         placeFocused $ smart (0.5, 0.5)
 
 
