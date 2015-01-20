@@ -7,7 +7,11 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+augroup haskell
+    autocmd!
+    autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+augroup END
 
 autocmd BufNewFile,BufRead *.hsc set filetype=haskell
 autocmd BufNewFile,BufRead *.page set filetype=markdown

@@ -49,11 +49,36 @@ vnoremap <silent> ]l <Esc>:call NextIndent(1, 1, 1, 1)<CR>m'gv''
 onoremap <silent> [l :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]l :call NextIndent(1, 1, 1, 1)<CR>
 
-nmap <F5> :GC<CR>
-
 :command GT GhcModType
 :command GTC GhcModTypeClear
 :command GC GhcModCheckAndLintAsync
+
+" Type of expression under cursor
+nmap <silent> <leader>ht :GhcModType<CR>
+" Insert type of expression under cursor
+nmap <silent> <leader>hT :GhcModTypeInsert<CR>
+" GHC errors and warnings
+nmap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>
+" Haskell Lint
+nmap <silent> <leader>hl :SyntasticCheck hlint<CR>
+
+" Hoogle the word under the cursor
+nnoremap <silent> <leader>hh :Hoogle<CR>
+
+" Hoogle and prompt for input
+nnoremap <leader>hH :Hoogle 
+
+" Hoogle for detailed documentation (e.g. "Functor")
+nnoremap <silent> <leader>hi :HoogleInfo<CR>
+
+" Hoogle for detailed documentation and prompt for input
+nnoremap <leader>hI :HoogleInfo 
+
+" Hoogle, close the Hoogle window
+nnoremap <silent> <leader>hz :HoogleClose<CR>
+
+" thanks to vim-slime, we can send v-mode selection to tmux by Ctrl-C Ctrl-C
+
 :command SP ConqueTermSplit zsh
 :command VSP ConqueTermVSplit zsh
 :command NL NeoCompleteLock
