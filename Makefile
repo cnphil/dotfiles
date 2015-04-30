@@ -12,12 +12,20 @@ vim-plugins:
 	cd .vim/bundle/vimproc; make
 	cd .vim/bundle/ycm; ./install.sh --clang-completer
 
+vim-plugins-fast:
+	cd .vim/bundle/vimproc; make
+	cd .vim/bundle/ycm; ./install.sh
+
 clean:
 	rm -f .vim/bundle/vimproc/autoload/vimproc_*.so
 
-vim: modules vim-plugins
+vim-config: modules
 	ln -s $(CURDIR)/.vimrc ~/.vimrc
 	ln -s $(CURDIR)/.vim ~/.vim
+
+vim: vim-config vim-plugins
+
+vim-fast: vim-config vim-plugins-fast
 
 gitconfig:
 	ln -s $(CURDIR)/.gitconfig ~/.gitconfig
@@ -31,6 +39,6 @@ tmux:
 	ln -s $(CURDIR)/.tmux.conf ~/.tmux.conf
 
 zsh:
-	curl -L http://install.ohmyz.sh | sh
+	-curl -L http://install.ohmyz.sh | sh
 	sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="phil-gentoo"/; s|.*ZSH_CUSTOM.*|ZSH_CUSTOM=$(CURDIR)/.oh-my-zsh/custom|' ~/.zshrc
 
