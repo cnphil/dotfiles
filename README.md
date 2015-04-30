@@ -3,6 +3,12 @@ dotfiles
 
 Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be automatically installed via `make`.
 
+### Fast bootstrapper:
+Setup the working environment on a server lightning fast.
+```bash
+$ curl -sL env.phil.tw | bash
+```
+
 ### Usage:
 * Backup your previous dotfiles.
 * Follow instructions in the following sections that you're interested.
@@ -21,7 +27,6 @@ Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be a
 
 ### vim:
 `.vimrc` and `.vim/`
-* Should work out of box.
 * Vim version 7.4.253 or up with lua, python support required.
 * Various TERM tweaks for theme Solarized required.
 * Other notable plugins that does NOT work out of box: ghc-mod (install from cabal), ack.
@@ -33,18 +38,17 @@ Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be a
 
 ### tmux:
 `.tmux.conf`
-* Should work out of box.
 * Changed bind key to Ctrl-A, default shell set to zsh.
 * Installation:
     * Run `make tmux`.
 
 ### slate:
 `.slate`
-* Should work out of box.
+* OS X-only.
 
 ### amethyst:
 `.amethyst`
-* Should work out of box.
+* OS X-only.
 * Collaborates with slate.
 
 ### oh-my-zsh:
@@ -60,7 +64,6 @@ Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be a
 
 ### xmonad:
 `.xmobarrc` and `.xmonad/xmonad.hs`
-* Should work out of box.
 * Both xmobar and xmonad should be installed via cabal-install.
     * Package `wireless_tools` required.
     * Run `cabal install c2hs && cabal install xmobar --flags="all_extensions"` for xft, alsa, mpd, and wireless support.
@@ -86,7 +89,6 @@ Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be a
 
 ### urxvt:
 `.urxvt/`
-* Basically works out of box.
 * Required package: `urxvt-perls` and `autocutsel`.
 * Please note that urxvt's settings are in `.Xresources`.
 

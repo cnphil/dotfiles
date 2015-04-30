@@ -8,7 +8,8 @@ echo "Phil's Server Bootstrapper"
 echo "=========================="
 echo "Please make sure that you have these packages installed:"
 echo ">> git, cmake, make, vim, tmux, zsh, python-dev (for some distros)"
-echo "\nAuto installation will start in 5 seconds."
+echo ""
+echo "Auto installation will start in 5 seconds."
 sleep 5
 
 DEFAULT_REPO="https://github.com/phil5/dotfiles.git"
