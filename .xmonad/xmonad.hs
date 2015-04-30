@@ -27,6 +27,7 @@ import XMonad.Util.NamedWindows (getName)
 import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Hooks.Place (placeHook, placeFocused, smart, withGaps)
+import XMonad.Hooks.EwmhDesktops
 import XMonad.ManageHook ((<+>))
 import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
@@ -341,7 +342,7 @@ myPlaceHook = placeHook $ withGaps (16,0,16,0) (smart (0.5,0.5))
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = ewmhDesktopsEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -442,7 +443,7 @@ sepBy sep = intercalate sep . filter (not . null)
 main = do
     nScreens <- countScreens
     xmobars <- spawnXmobars nScreens
-    xmonad $ defaultConfig {
+    xmonad $ ewmh defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
