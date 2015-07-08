@@ -108,10 +108,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command --lock")
 
     -- run shellPrompt
-    , ((modm .|. shiftMask, xK_p     ), shellPrompt myXPConfig)
+    , ((modm .|. shiftMask, xK_s     ), shellPrompt myXPConfig)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
+
+    -- Bring the currently focused window to the top of the stack
+    , ((modm,               xK_y     ), windows W.shiftMaster)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)

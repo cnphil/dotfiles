@@ -8,7 +8,8 @@ Config { font = "xft:Terminus:size=9,Symbola:size=9,Source Han Sans CN Light:siz
                     , Run Memory ["-t","<usedratio>%"] 30
                     , Run Swap [] 300
                     , Run Com "/home/phil/bin/mail.sh" [] "mail" 50
-                    , Run Com "/home/phil/bin/vpn.sh" [] "vpn" 100
+                    , Run BufferedPipeReader "vpn"
+                          [ (0, False, "/tmp/.vpn-pipe") ]
                     , Run Date "%a %B %-d %Y %H:%M:%S %p" "date" 10
                     , Run BatteryP ["BAT0"]
                           ["-t", "Batt:<acstatus> <left>%",
