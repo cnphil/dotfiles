@@ -13,5 +13,11 @@ augroup haskell
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
+augroup java
+  if filereadable(expand('~/.at_google_workstation'))
+    source /google/data/ro/projects/vigor/vigor.vim
+  endif
+augroup END
+
 autocmd BufNewFile,BufRead *.hsc set filetype=haskell
 autocmd BufNewFile,BufRead *.page set filetype=markdown

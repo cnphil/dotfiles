@@ -20,7 +20,7 @@ else
 endif
 
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 " gui_gtk2 font size
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
