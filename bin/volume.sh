@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 get_volume() {
   # return volume levels (0-100)

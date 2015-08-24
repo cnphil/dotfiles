@@ -66,7 +66,10 @@ $ curl -sL env.phil.tw | bash
 `.xmobarrc` and `.xmonad/xmonad.hs`
 * Both xmobar and xmonad should be installed via cabal-install.
     * Package `wireless_tools` required.
-    * Run `cabal install c2hs && cabal install xmobar --flags="all_extensions"` for xft, alsa, mpd, and wireless support.
+    * Run `cabal install xmobar --flags="all_extensions"` for xft, alsa, mpd, and wireless support.
+    * Various libraries required, follow cabal's warnings carefully. To work
+      with multiply displays, make sure `libxinerama-dev` is installed before
+      xmonad and xmobar.
 
 ### xorg:
 `.xinitrc`, `.Xresources`, `.Xmodmap` and `.xbindkeysrc`

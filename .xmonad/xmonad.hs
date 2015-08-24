@@ -103,6 +103,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run -fn 'Open Sans-9'")
 
+    -- launch screensaver
+    , ((modm .|. shiftMask, xK_l     ), spawn "gnome-screensaver-command --lock")
+
     -- run shellPrompt
     , ((modm .|. shiftMask, xK_p     ), shellPrompt myXPConfig)
 
@@ -359,6 +362,7 @@ myppWithXmobar xmobar = defaultPP {
                    , ppTitle = xmobarColor "white" "" . shorten 110
                    -- , ppTitle = (\_ -> "")
                    , ppCurrent = xmobarColor "green" "black" . pad
+                   , ppUrgent = xmobarColor "black" "green" . pad
                    , ppHidden = pad
                    , ppHiddenNoWindows = \w -> xmobarColor "#444" "" (" " ++ w ++ " ")
                    , ppSep = xmobarColor "#555" "" " / "
@@ -426,7 +430,8 @@ pprWindowSet' screen sort' urgents pp s = sepBy (ppWsSep pp) . map fmt . sort' $
           visibles = map (W.tag . W.workspace) (W.current s : W.visible s)
 
           fmt w = printer pp (W.tag w)
-              where printer | W.tag w == this                                               = ppCurrent
+              where printer | this == (head visibles) && W.tag w == this                    = ppUrgent
+                            | W.tag w == this                                               = ppCurrent
                             | W.tag w `elem` visibles                                       = ppVisible
                             | any (\x -> maybe False (== W.tag w) (W.findTag x s)) urgents  = \ppC -> ppUrgent ppC . ppHidden ppC
                             | isJust (W.stack w)                                            = ppHidden
