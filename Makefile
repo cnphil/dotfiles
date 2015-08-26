@@ -10,7 +10,7 @@ modules-update:
 
 vim-plugins:
 	cd .vim/bundle/vimproc; make
-	cd .vim/bundle/non-google/ycm; ./install.sh --clang-completer
+	cd .vim/bundle/non-google/ycm; ./install.sh --clang-completer --system-libclang
 
 vim-plugins-fast:
 	cd .vim/bundle/vimproc; make
