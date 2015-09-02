@@ -28,6 +28,7 @@ import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Hooks.Place (placeHook, placeFocused, smart, withGaps)
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.ManageHook ((<+>))
 import XMonad.Actions.FloatKeys (keysMoveWindow, keysResizeWindow, keysAbsResizeWindow, keysMoveWindowTo)
 import Codec.Binary.UTF8.String (encodeString)
@@ -448,7 +449,7 @@ sepBy sep = intercalate sep . filter (not . null)
 main = do
     nScreens <- countScreens
     xmobars <- spawnXmobars nScreens
-    xmonad $ ewmh defaultConfig {
+    xmonad conf {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -468,8 +469,10 @@ main = do
         manageHook         = myPlaceHook <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook $ map myppWithXmobar xmobars, 
-        startupHook        = myStartupHook
+        startupHook        = myStartupHook >> setWMName "LG3D"
     }
+
+conf = ewmh defaultConfig
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
