@@ -19,5 +19,14 @@ augroup java
   endif
 augroup END
 
+au BufRead,BufNewFile *.dart setfiletype dart
+augroup dart
+    " Set Dart SDK location
+    autocmd FileType dart let g:ycm_dart_bin_folder_path = '/usr/lib/google-dartlang/bin'
+
+    " Enable support for google3
+    autocmd FileType dart let g:ycm_dart_analysis_server_flags = '--google3-package-resolution'
+augroup END
+
 autocmd BufNewFile,BufRead *.hsc set filetype=haskell
 autocmd BufNewFile,BufRead *.page set filetype=markdown

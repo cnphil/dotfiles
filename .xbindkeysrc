@@ -6,11 +6,11 @@
     XF86KbdBrightnessDown
 "keybdlight.sh up"
     XF86KbdBrightnessUp
-"/home/phil/bin/volume.sh toggle"
+"bash -c '$HOME/bin/volume.sh toggle'"
     XF86AudioMute
-"/home/phil/bin/volume.sh down"
+"bash -c '$HOME/bin/volume.sh down'"
     XF86AudioLowerVolume
-"/home/phil/bin/volume.sh up"
+"bash -c '$HOME/bin/volume.sh up'"
     XF86AudioRaiseVolume
 "urxvt -e 'ncmpcpp'"
     XF86LaunchA

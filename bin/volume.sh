@@ -1,5 +1,7 @@
 #!/bin/bash
 
+// TODO: migrate to pulseaudio
+
 get_volume() {
   # return volume levels (0-100)
   vol=$(amixer sget Master | grep -o -m 1 '[[:digit:]]*%' | tr -d '%')
@@ -55,7 +57,8 @@ case $1 in
     amixer set Master 10- unmute > /dev/null
     ;;
   "toggle")
-    amixer set Master toggle >/dev/null
+    # amixer set Master toggle >/dev/null
+    pactl set-sink-mute @DEFAULT_SINK@ toggle > /dev/null
     ;;
   *)
     echo "unknown command"
