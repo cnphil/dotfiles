@@ -171,10 +171,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_Escape), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    -- , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
     
     -- mod-[, Jump to previous workspace
     
@@ -186,15 +186,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-Esc, Jump to the previously displayed WS
     
-    , ((modm              , xK_Escape),  CWS.toggleWS)
+    , ((modm              , xK_q      ),  CWS.toggleWS)
     
     -- mod-shift-[, Jump to previous workspace and push current window
     
-    -- , ((modm .|. shiftMask, xK_bracketleft ), CWS.shiftToNext >> CWS.prevWS)
+    , ((modm .|. shiftMask, xK_bracketleft ), CWS.shiftToPrev >> CWS.prevWS)
 
     -- mod-shift-], Jump to next workspace and push current window
 
-    -- , ((modm .|. shiftMask, xK_bracketright), CWS.shiftToNext >> CWS.nextWS)
+    , ((modm .|. shiftMask, xK_bracketright), CWS.shiftToNext >> CWS.nextWS)
     
     ]
 
@@ -216,7 +216,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), ((\i->(W.view i).(W.shift i)), shiftMask)]]
 
     ++
 
