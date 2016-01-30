@@ -6,4 +6,3 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [[ -f ~/.Xresources_local ]] && xrdb -merge ~/.Xresources_local
-

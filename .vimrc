@@ -29,6 +29,14 @@ if filereadable(expand('~/.at_google_workstation'))
   " Google-only
   source /usr/share/vim/google/google.vim
   Glug youcompleteme-google
+  " comma-s to sort java imports
+  nnoremap ,s    :!/google/src/head/depot/google3/tools/java/sort_java_imports.py % <CR>
+  " comma-r to remove unused java imports
+  nnoremap ,r    :!/google/src/head/depot/google3/tools/java/remove_unused_imports.py --fix % <CR>
+  " Jade to automatically resolve imports and deals with BUILD files
+  command Jade !/google/data/ro/teams/jade/jade %
+  " eclim
+  let g:EclimCompletionMethod = 'omnifunc'
 else
   " outside of Google
   call Unbundle('bundle/non-google/*')

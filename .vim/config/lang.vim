@@ -16,6 +16,9 @@ augroup END
 augroup java
   if filereadable(expand('~/.at_google_workstation'))
     source /google/data/ro/projects/vigor/vigor.vim
+    " Eclim settings and bindings
+    " mapping <leader>d to Define
+    nmap <leader>d :JavaSearchContext<CR>
   endif
 augroup END
 
@@ -26,6 +29,8 @@ augroup dart
 
     " Enable support for google3
     autocmd FileType dart let g:ycm_dart_analysis_server_flags = '--google3-package-resolution'
+    set shiftwidth=2
+    set softtabstop=2
 augroup END
 
 autocmd BufNewFile,BufRead *.hsc set filetype=haskell

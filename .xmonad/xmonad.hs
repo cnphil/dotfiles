@@ -105,7 +105,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_p     ), spawn "dmenu_run -fn 'Open Sans-9'")
 
     -- launch screensaver
-    , ((modm .|. shiftMask, xK_l     ), spawn "gnome-screensaver-command --lock")
+    , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command --lock")
 
     -- run shellPrompt
     , ((modm .|. shiftMask, xK_p     ), shellPrompt myXPConfig)
@@ -329,6 +329,7 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "mpv"            --> doFloat
+    , className =? "google-chrome-beta" --> doIgnore -- for kiosks
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 

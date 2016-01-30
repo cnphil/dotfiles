@@ -4,3 +4,4 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtHistory(-1)':       [],
 \ 'PrtHistory(1)':        [],
 \ }
+let g:ctrlp_max_files=0

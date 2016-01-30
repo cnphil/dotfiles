@@ -1,6 +1,7 @@
 
 if !has('gui_running')
-    let g:solarized_termcolors=256
+    """let g:solarized_termcolors=256
+    " uncomment the above line if using non-custom terminal colors
     "set term=screen-256color
 else
     set guioptions-=L
@@ -20,7 +21,8 @@ else
 endif
 
 set background=dark
-colorscheme gruvbox
+set t_Co=16
+colorscheme solarized
 
 " gui_gtk2 font size
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
