@@ -4,8 +4,10 @@ modules:
 	git submodule sync
 	git submodule update --init --recursive
 
-modules-update:
+modules-fetch:
 	git submodule foreach 'git fetch origin'
+
+modules-update: modules-fetch
 	git submodule foreach 'git checkout origin/master'
 
 vim-plugins:

@@ -15,6 +15,7 @@ $ curl -sL env.phil.tw | bash
 * `make modules` will restore submodules.
 * `make modules-update` will update submodules with their upstream HEADs.
 * `make build` builds required binaries like `vimproc`.
+* Before running `git pull` to obtain upstream changes, run `make modules-fetch` to make sure submodules are ready.
 
 ### TODO:
 * Dedicated language settings for vim.
