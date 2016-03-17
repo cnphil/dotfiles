@@ -105,7 +105,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_p     ), spawn "dmenu_run -fn 'Open Sans-9'")
 
     -- launch screensaver
-    , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command --lock")
+    , ((modm .|. shiftMask .|. controlMask, xK_o), spawn "xscreensaver-command --lock")
 
     -- run shellPrompt
     , ((modm .|. shiftMask, xK_s     ), shellPrompt myXPConfig)
