@@ -26,6 +26,7 @@ runtime! config/**/*.vim
 
 " google production settings
 if filereadable(expand('~/.at_google_workstation'))
+  let g:ycm_global_ycm_extra_conf = '/google/src/head/depot/google3/third_party/YouCompleteMe/ycm_extra_conf.py'
   " Google-only
   source /usr/share/vim/google/google.vim
   Glug youcompleteme-google
