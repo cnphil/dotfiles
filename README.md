@@ -6,7 +6,7 @@ Backup of my dotfiles. Use `ln -s` to put them in place, some workflows can be a
 ### Fast bootstrapper:
 Setup the working environment on a server lightning fast.
 ```bash
-$ curl -sL env.phil.tw | bash
+$ curl -sL https://phil.tw/env | bash
 ```
 
 ### Usage:
@@ -18,13 +18,8 @@ $ curl -sL env.phil.tw | bash
 * Before running `git pull` to obtain upstream changes, run `make modules-fetch` to make sure submodules are ready.
 
 ### TODO:
-* Dedicated language settings for vim.
 * Migrate all dotfiles to symlink-style.
-* Try out:
-    * Irssi and irssi-xmpp.
-    * ncmpcpp configurations.
-    * Gitv and fugitive.
-    * Some indent-guide plugins for vim.
+* `.vimrc` no longer works on Vim 8, needs complete remake.
 
 ### vim:
 `.vimrc` and `.vim/`
